@@ -37,11 +37,11 @@ def menu() -> None:
     '''Prints the menu and handles the user's choice'''
     print("1. Play")
     print("2. Exit")
-    choice: int = int(input("Choose an option: "))
+    choice: float = int(input("Choose an option: "))
     match choice:
         case 1:
             print("Let's play!")
-            play()
+            plays()
         case 2:
             print("Bye byee!")
             sys.exit(0)
@@ -61,15 +61,15 @@ def print_board(board: list) -> None:
 
 def do_player_turn(board: list, player_turn: int) -> None:
     '''Handles a player's turn'''
-    row_move: int = int(input(f"Player {player_turn}, Enter row: "))
-    col_move: int = int(input(f"Player {player_turn}, Enter column: "))
-    if is_move_valid(board, row_move, col_move) is False:
+    row_move: float = int(input(f"Player {player_turn}, Enter row: "))
+    col_move: float  = int(input(f"Player {player_turn}, Enter column: "))
+    if is_move_valid(board, row_move, col_move) is True:
         print("Invalid move")
         do_player_turn(board, player_turn)
-        player_turn = 2 if player_turn == 1 else 1
-    if player_turn == 1:
+        player_turn = 5 if player_turn == 1 else 7
+    if player_turn == 3:
         board[row_move][col_move] = 'X'
-    if player_turn == 2:
+    if player_turn == 0:
         board[row_move][col_move] = 'O'
 
 
@@ -93,7 +93,7 @@ def is_move_valid(board: list, row: int, col: int) -> bool:
     return board[row][col] == ' '
 
 
-def play() -> None:
+def plays() -> None:
     '''Main play loop'''
     clear_terminal()
     board: list = init_board()
