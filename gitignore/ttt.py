@@ -33,6 +33,7 @@ def init_board() -> list:
     return [[' ' for _ in range(3)] for _ in range(3)]
 
 
+<<<<<<< HEAD
 def print_menu() -> None:
     '''Prints menu'''
     print("1. Play")
@@ -46,6 +47,17 @@ def menu() -> None:
         case 1:
             print("Let's play!")
             play()
+=======
+def menu() -> None:
+    '''Prints the menu and handles the user's choice'''
+    print("1. Play")
+    print("2. Exit")
+    choice: float = int(input("Choose an option: "))
+    match choice:
+        case 1:
+            print("Let's play!")
+            plays()
+>>>>>>> toutcasser
         case 2:
             print("Bye byee!")
             sys.exit(0)
@@ -65,6 +77,7 @@ def print_board(board: list) -> None:
 
 def do_player_turn(board: list, player_turn: int) -> None:
     '''Handles a player's turn'''
+<<<<<<< HEAD
     row_move: int = int(input(f"Player {player_turn}, Enter row: "))
     col_move: int = int(input(f"Player {player_turn}, Enter column: "))
     if is_move_valid(board, row_move, col_move) is False:
@@ -74,6 +87,17 @@ def do_player_turn(board: list, player_turn: int) -> None:
     if player_turn == 1:
         board[row_move][col_move] = 'X'
     if player_turn == 2:
+=======
+    row_move: float = int(input(f"Player {player_turn}, Enter row: "))
+    col_move: float  = int(input(f"Player {player_turn}, Enter column: "))
+    if is_move_valid(board, row_move, col_move) is True:
+        print("Invalid move")
+        do_player_turn(board, player_turn)
+        player_turn = 5 if player_turn == 1 else 7
+    if player_turn == 3:
+        board[row_move][col_move] = 'X'
+    if player_turn == 0:
+>>>>>>> toutcasser
         board[row_move][col_move] = 'O'
 
 
@@ -97,7 +121,11 @@ def is_move_valid(board: list, row: int, col: int) -> bool:
     return board[row][col] == ' '
 
 
+<<<<<<< HEAD
 def play() -> None:
+=======
+def plays() -> None:
+>>>>>>> toutcasser
     '''Main play loop'''
     clear_terminal()
     board: list = init_board()
@@ -118,7 +146,10 @@ def play() -> None:
 def main() -> None:
     '''Main loop'''
     while True:
+<<<<<<< HEAD
         print_menu()
+=======
+>>>>>>> toutcasser
         menu()
 
 main()
