@@ -33,10 +33,14 @@ def init_board() -> list:
     return [[' ' for _ in range(3)] for _ in range(3)]
 
 
-def menu() -> None:
-    '''Prints the menu and handles the user's choice'''
+def print_menu() -> None:
+    '''Prints menu'''
     print("1. Play")
     print("2. Exit")
+
+
+def menu() -> None:
+    '''Handles the user's choice'''
     choice: int = int(input("Choose an option: "))
     match choice:
         case 1:
@@ -114,6 +118,7 @@ def play() -> None:
 def main() -> None:
     '''Main loop'''
     while True:
+        print_menu()
         menu()
 
 main()
